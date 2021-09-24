@@ -4,6 +4,7 @@ import (
    "io/ioutil"
    "log"
    "net/http"
+   "fmt"
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {
@@ -18,5 +19,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
    }
 //Convert the body to type string
    sb := string(body)
-   log.Printf(sb)
+   //log.Printf(sb)
+   fmt.Fprintf(sb)
 }

@@ -55,6 +55,7 @@
 	// 		console.log(err);
 	// 	});
 
+	//Aufruf der Server less function, welche dan den GET Request macht
 	fetch('https://zimkit.vercel.app/api/get')
 		.then((res) => {
 			if (!res.ok) {

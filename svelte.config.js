@@ -1,18 +1,22 @@
 //import adapter from '@sveltejs/adapter-static';
+		// adapter: adapter({
+		//	pages: 'build',
+		//	assets: 'build',
+		//	fallback: null
+	
 import adapter from '@sveltejs/adapter-netlify';
-
-export default {
-	kit: {
-		target: '#svelte',
-		vite: {
-			define: {
-				'process.env': process.env
-			}
-		},
-		adapter: adapter({
-			pages: 'build',
-			assets: 'build',
-			fallback: null
-		})
-	}
+ 
+const config = {
+  kit: {
+    adapter: adapter(),
+    // hydrate the <div id="svelte"> element in src/app.html
+    target: '#svelte'
+	},
+	vite: {
+		define: {
+			'process.env': process.env
+		}
+	},
 };
+ 
+export default config

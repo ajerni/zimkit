@@ -20,5 +20,5 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 //Convert the body to type string
    sb := string(body)
    //log.Printf(sb)
-   fmt.Fprintf(sb)
+   fmt.Fprintf(w, sb)
 }

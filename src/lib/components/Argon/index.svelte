@@ -5,7 +5,8 @@
 	let myApiKey;
 	let myDevice;
 
-	let temp = 10;
+	let temp = 0;
+	let hum = 0;
 
 	if (process.env.NODE_ENV === 'production') {
 		// For production
@@ -17,7 +18,7 @@
 		myDevice = MY_DEVICE;
 	}
 
-	//GET (um auf Particle.variable zuzugreifen)
+	//GET temperature (um auf Particle.variable zuzugreifen)
 	let variable = 'temperature';
 	fetch(
 		'https://api.particle.io/v1/devices/' + myDevice + '/' + variable + '?access_token=' + myApiKey
@@ -35,10 +36,27 @@
 		.catch((err) => {
 			console.log(err);
 		});
+	//GET humidity
+	let variable2 = 'humidity';
+	fetch(
+		'https://api.particle.io/v1/devices/' + myDevice + '/' + variable2 + '?access_token=' + myApiKey
+	)
+		.then((res) => {
+			if (!res.ok) {
+				throw new Error('Failed!');
+			}
+			return res.json();
+		})
+		.then((data) => {
+			console.log('Aktueller Wert: ' + data.result);
+			hum = data.result;
+		})
+		.catch((err) => {
+			console.log(err);
+		});
 </script>
-
-
 
 <h1>Temperatur-Sensor an Particle Argon</h1>
 
-<h2>Temperatur: {temp}</h2>
+<h2>Temperatur: {temp} °C</h2>
+<h2>Humidity: {hum} %</h2>

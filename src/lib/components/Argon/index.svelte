@@ -5,7 +5,7 @@
 	let myApiKey;
 	let myDevice;
 
-	let temp;
+	let temp = 10;
 
 	if (process.env.NODE_ENV === 'production') {
 		// For production
@@ -36,6 +36,8 @@
 			console.log(err);
 		});
 </script>
+
+
 
 <h1>Temperatur-Sensor an Particle Argon</h1>
 

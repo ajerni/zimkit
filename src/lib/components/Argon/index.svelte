@@ -19,10 +19,43 @@
 	}
 
 	//GET temperature (um auf Particle.variable zuzugreifen)
-	let variable = 'temperature';
-	fetch(
-		'https://api.particle.io/v1/devices/' + myDevice + '/' + variable + '?access_token=' + myApiKey
-	)
+	// let variable = 'temperature';
+	// fetch(
+	// 	'https://api.particle.io/v1/devices/' + myDevice + '/' + variable + '?access_token=' + myApiKey
+	// )
+	// 	.then((res) => {
+	// 		if (!res.ok) {
+	// 			throw new Error('Failed!');
+	// 		}
+	// 		return res.json();
+	// 	})
+	// 	.then((data) => {
+	// 		console.log('Aktueller Wert: ' + data.result);
+	// 		temp = data.result;
+	// 	})
+	// 	.catch((err) => {
+	// 		console.log(err);
+	// 	});
+	// //GET humidity
+	// let variable2 = 'humidity';
+	// fetch(
+	// 	'https://api.particle.io/v1/devices/' + myDevice + '/' + variable2 + '?access_token=' + myApiKey
+	// )
+	// 	.then((res) => {
+	// 		if (!res.ok) {
+	// 			throw new Error('Failed!');
+	// 		}
+	// 		return res.json();
+	// 	})
+	// 	.then((data) => {
+	// 		console.log('Aktueller Wert: ' + data.result);
+	// 		hum = data.result;
+	// 	})
+	// 	.catch((err) => {
+	// 		console.log(err);
+	// 	});
+
+	fetch('https://zimkit.vercel.app/api/get')
 		.then((res) => {
 			if (!res.ok) {
 				throw new Error('Failed!');
@@ -32,24 +65,6 @@
 		.then((data) => {
 			console.log('Aktueller Wert: ' + data.result);
 			temp = data.result;
-		})
-		.catch((err) => {
-			console.log(err);
-		});
-	//GET humidity
-	let variable2 = 'humidity';
-	fetch(
-		'https://api.particle.io/v1/devices/' + myDevice + '/' + variable2 + '?access_token=' + myApiKey
-	)
-		.then((res) => {
-			if (!res.ok) {
-				throw new Error('Failed!');
-			}
-			return res.json();
-		})
-		.then((data) => {
-			console.log('Aktueller Wert: ' + data.result);
-			hum = data.result;
 		})
 		.catch((err) => {
 			console.log(err);

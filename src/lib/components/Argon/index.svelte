@@ -1,6 +1,6 @@
-<!-- https://blog.hdks.org/Environment-Variables-in-SvelteKit-and-Vercel/ -->
+<!-- https://blog.hdks.org/Environment-Variables-in-SvelteKit-and-Vercel/  Achtung: bei import nicht Dateiendung .js anhängen!-->
 <script>
-	import { MY_API_KEY, MY_DEVICE } from '$lib/Env.js';
+	import { MY_API_KEY, MY_DEVICE } from '$lib/Env';
 
 	let myApiKey;
 	let myDevice;

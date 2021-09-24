@@ -5,6 +5,7 @@
     <nav>
             <a href="/.">Home</a>
             <a href="/contact">Contact</a>
+            <a href="/temperatur">Temperatur</a>
     </nav>
 </header>
 <main>

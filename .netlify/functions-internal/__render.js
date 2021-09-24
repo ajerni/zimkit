@@ -2443,9 +2443,9 @@ function init(settings = default_settings) {
     amp: false,
     dev: false,
     entry: {
-      file: assets + "/_app/start-c77d4e4d.js",
+      file: assets + "/_app/start-f16394ae.js",
       css: [assets + "/_app/assets/start-61d1577b.css"],
-      js: [assets + "/_app/start-c77d4e4d.js", assets + "/_app/chunks/vendor-0839ef83.js"]
+      js: [assets + "/_app/start-f16394ae.js", assets + "/_app/chunks/vendor-0839ef83.js"]
     },
     fetched: void 0,
     floc: false,
@@ -2484,6 +2484,13 @@ var manifest = {
       params: empty,
       a: ["src/routes/__layout.svelte", "src/routes/index.svelte"],
       b: ["src/routes/__error.svelte"]
+    },
+    {
+      type: "page",
+      pattern: /^\/temperatur\/?$/,
+      params: empty,
+      a: ["src/routes/__layout.svelte", "src/routes/temperatur.svelte"],
+      b: ["src/routes/__error.svelte"]
     }
   ]
 };
@@ -2502,9 +2509,12 @@ var module_lookup = {
   }),
   "src/routes/index.svelte": () => Promise.resolve().then(function() {
     return index;
+  }),
+  "src/routes/temperatur.svelte": () => Promise.resolve().then(function() {
+    return temperatur;
   })
 };
-var metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-e50c0bcb.js", "css": [], "js": ["pages/__layout.svelte-e50c0bcb.js", "chunks/vendor-0839ef83.js"], "styles": [] }, "src/routes/__error.svelte": { "entry": "pages/__error.svelte-aeef986f.js", "css": [], "js": ["pages/__error.svelte-aeef986f.js", "chunks/vendor-0839ef83.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-b58ec99e.js", "css": [], "js": ["pages/index.svelte-b58ec99e.js", "chunks/vendor-0839ef83.js"], "styles": [] } };
+var metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-0aa2b9c6.js", "css": [], "js": ["pages/__layout.svelte-0aa2b9c6.js", "chunks/vendor-0839ef83.js"], "styles": [] }, "src/routes/__error.svelte": { "entry": "pages/__error.svelte-aeef986f.js", "css": [], "js": ["pages/__error.svelte-aeef986f.js", "chunks/vendor-0839ef83.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-b58ec99e.js", "css": [], "js": ["pages/index.svelte-b58ec99e.js", "chunks/vendor-0839ef83.js"], "styles": [] }, "src/routes/temperatur.svelte": { "entry": "pages/temperatur.svelte-6733e3de.js", "css": [], "js": ["pages/temperatur.svelte-6733e3de.js", "chunks/vendor-0839ef83.js"], "styles": [] } };
 async function load_component(file) {
   const { entry, css: css2, js, styles } = metadata_lookup[file];
   return {
@@ -2526,7 +2536,8 @@ var _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 
 
 <header><nav><a href="${"/."}">Home</a>
-            <a href="${"/contact"}">Contact</a></nav></header>
+            <a href="${"/contact"}">Contact</a>
+            <a href="${"/temperatur"}">Temperatur</a></nav></header>
 <main>${slots.default ? slots.default({}) : ``}</main>
 <footer><p>A project by
             <a aria-label="${"Open the Rodney Lab site"}" href="${"https://www.andierni.ch/"}" target="${"_blank"}" rel="${"nofollow noopener noreferrer"}">ERNILABS</a>.
@@ -2678,6 +2689,55 @@ var index = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": Routes
+});
+var variable = "temperature";
+var variable2 = "humidity";
+var Argon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let myApiKey;
+  let myDevice;
+  let temp = 0;
+  let hum = 0;
+  {
+    myApiKey = {}.MY_API_KEY;
+    myDevice = {}.MY_DEVICE;
+  }
+  fetch("https://api.particle.io/v1/devices/" + myDevice + "/" + variable + "?access_token=" + myApiKey).then((res) => {
+    if (!res.ok) {
+      throw new Error("Failed!");
+    }
+    return res.json();
+  }).then((data) => {
+    console.log("Aktueller Wert: " + data.result);
+    temp = data.result;
+  }).catch((err) => {
+    console.log(err);
+  });
+  fetch("https://api.particle.io/v1/devices/" + myDevice + "/" + variable2 + "?access_token=" + myApiKey).then((res) => {
+    if (!res.ok) {
+      throw new Error("Failed!");
+    }
+    return res.json();
+  }).then((data) => {
+    console.log("Aktueller Wert: " + data.result);
+    hum = data.result;
+  }).catch((err) => {
+    console.log(err);
+  });
+  return `
+
+
+<h1>Temperatur-Sensor an Particle Argon</h1>
+
+<h2>Temperatur: ${escape(temp)} \xB0C</h2>
+<h2>Humidity: ${escape(hum)} %</h2>`;
+});
+var Temperatur = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `${validate_component(Argon, "Argon").$$render($$result, {}, {}, {})}`;
+});
+var temperatur = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": Temperatur
 });
 
 // .svelte-kit/netlify/entry.js

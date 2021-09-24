@@ -4,7 +4,8 @@
 //	assets: 'build',
 //	fallback: null
 
-import adapter from '@sveltejs/adapter-netlify';
+//import adapter from '@sveltejs/adapter-netlify';
+import adapter from '@sveltejs/adapter-vercel';
 
 const config = {
 	kit: {

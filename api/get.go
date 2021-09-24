@@ -25,3 +25,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
    //log.Printf(sb)
    fmt.Fprintf(w, sb)
 }
+
+
+//for Go POST request see:
+//https://zetcode.com/golang/getpostrequest/

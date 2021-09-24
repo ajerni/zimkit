@@ -1,4 +1,5 @@
 //this is a server less function running on vercel (Acces token etc. kann direkt im Http request sein, da diese Funktion nur auf dem Sever ist!)
+//GET Request auf Particle Argon's teperature variable
 
 package handler
 

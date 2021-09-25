@@ -55,7 +55,7 @@
 	// 		console.log(err);
 	// 	});
 
-	//Aufruf (GET Request) der Server less function auf vercel, welche dann den GET Request macht zum Particle
+	//Aufruf (GET Request) der Server less function auf vercel, welche dann den GET Request macht zur Particle.variable
 	fetch('https://zimkit.vercel.app/api/get?key=temperature')
 		.then((res) => {
 			if (!res.ok) {

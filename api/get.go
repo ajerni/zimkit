@@ -1,5 +1,5 @@
 //this is a server less function running on vercel (Acces token etc. kann direkt im Http request sein, da diese Funktion nur auf dem Sever ist!)
-//GET Request auf Particle Argon's teperature variable
+//GET Request auf Particle Argon's teperature variable (Particle.variable)
 
 package handler
 
@@ -12,7 +12,7 @@ import (
 
 func Handler(w http.ResponseWriter, r *http.Request) {
 
-   //https://zimkit.vercel.app/api/get?key=nameOfParicleVariable (Parameter key auslesen)
+   //https://zimkit.vercel.app/api/get?key=nameOfParicleVariable (Parameter key auslesen) / wenn mehrere Parameter siehe goget.go
    keys := r.URL.Query()["key"]
    key := keys[0]
 

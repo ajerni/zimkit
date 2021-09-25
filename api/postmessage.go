@@ -14,7 +14,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
    keys := r.URL.Query()["key"] //hier wird der parameter key ausgelesen (eventname der published werden soll)
    key := keys[0]
 
-   f = "setmessage" //die Particle.function die aufgerufen werden soll
+   f := "setmessage" //die Particle.function die aufgerufen werden soll
 
    params := url.Values{} //definiert den Body des POST request
   	params.Add("args", key)

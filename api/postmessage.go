@@ -12,7 +12,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
    //use like this: https://zimkit.vercel.app/api/postmessage?key=neuerWert
 
    keys := r.URL.Query()["key"] //hier wird der parameter key ausgelesen (eventname der published werden soll)
-   key := keys[0]
+   key := keys[0] //Argument, das an die Particle.function setmessage übergeben wird (also der neue Wert)
 
    f := "setmessage" //die Particle.function die aufgerufen werden soll
 

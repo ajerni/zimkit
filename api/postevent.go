@@ -30,9 +30,9 @@ func Handler(w http.ResponseWriter, r *http.Request) {
   	params.Add("access_token", "906d5e4a9041e4c0773cad80ccf23490fe83e76c")
   	params.Add("data", "")
   
-   resp, err := http.PostForm("https://api.particle.io/v1/devices/events", params) 
+   resp:= http.PostForm("https://api.particle.io/v1/devices/events", params) 
   
    defer resp.Body.Close()
-   body, err := ioutil.ReadAll(resp.Body)
+   //body, err := ioutil.ReadAll(resp.Body)
    
 }

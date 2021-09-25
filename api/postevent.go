@@ -13,10 +13,8 @@ package handler
 
 import (
    "io/ioutil"
-   "log"
    "net/http"
    "net/url"
-   "fmt"
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {

@@ -26,12 +26,14 @@ func Handler(w http.ResponseWriter, r *http.Request) {
    keys := r.URL.Query()["key"]
    key := keys[0]
 
+   url := "https://api.particle.io/v1/devices/events"
+
    params := url.Values{}
   	params.Add("name", key)
   	params.Add("access_token", "906d5e4a9041e4c0773cad80ccf23490fe83e76c")
   	params.Add("data", "")
   
-   resp, err := http.PostForm("https://api.particle.io/v1/devices/events", params) 
+   resp, err := http.PostForm(url, params) 
   
    defer resp.Body.Close()
    body, err := ioutil.ReadAll(resp.Body)

@@ -14,6 +14,7 @@ package handler
 import (
    "net/http"
    "net/url"
+   "log"
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {
@@ -29,7 +30,12 @@ func Handler(w http.ResponseWriter, r *http.Request) {
   	params.Add("access_token", "906d5e4a9041e4c0773cad80ccf23490fe83e76c")
   	params.Add("data", "")
   
-   resp:= http.PostForm("https://api.particle.io/v1/devices/events", params) 
+   resp, err := http.PostForm("https://api.particle.io/v1/devices/events", params) 
+
+   if err != nil {   
+      log.Printf("Request Failed: %s", err)
+      return
+   }
   
    defer resp.Body.Close()
    

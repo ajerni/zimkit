@@ -12,7 +12,6 @@
 package handler
 
 import (
-   "io/ioutil"
    "net/http"
    "net/url"
 )
@@ -33,6 +32,5 @@ func Handler(w http.ResponseWriter, r *http.Request) {
    resp:= http.PostForm("https://api.particle.io/v1/devices/events", params) 
   
    defer resp.Body.Close()
-   //body, err := ioutil.ReadAll(resp.Body)
    
 }

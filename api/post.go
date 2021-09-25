@@ -10,6 +10,7 @@ import (
 func Handler(w http.ResponseWriter, r *http.Request) {
 
    //use like this: https://zimkit.vercel.app/api/post?f=particleFunction&a=newMessageText
+   // https://zimkit.vercel.app/api/post?f=setmesssage&a=neu
 
    funcs := r.URL.Query()["f"] //hier wird der parameter key ausgelesen (eventname der published werden soll)
    f := funcs[0] // die Particle.Function

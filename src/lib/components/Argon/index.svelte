@@ -70,6 +70,22 @@
 		.catch((err) => {
 			console.log(err);
 		});
+
+	//GET Particle.variable humidity via serverless function get on Vercel:
+	fetch('https://zimkit.vercel.app/api/get?key=humidity')
+		.then((res) => {
+			if (!res.ok) {
+				throw new Error('Failed!');
+			}
+			return res.json();
+		})
+		.then((data) => {
+			console.log('Aktueller Wert: ' + data.result);
+			hum = data.result;
+		})
+		.catch((err) => {
+			console.log(err);
+		});
 </script>
 
 <h1>Temperatur-Sensor an Particle Argon</h1>

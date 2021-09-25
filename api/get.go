@@ -12,7 +12,7 @@ import (
 
 func Handler(w http.ResponseWriter, r *http.Request) {
 
-   //https://zimkit.vercel.app/api/get?key=temperature (Parameter key auslesen)
+   //https://zimkit.vercel.app/api/get?key=nameOfParicleVariable (Parameter key auslesen)
    keys := r.URL.Query()["key"]
    key := keys[0]
 
@@ -32,7 +32,3 @@ func Handler(w http.ResponseWriter, r *http.Request) {
    //log.Printf(sb)
    fmt.Fprintf(w, sb)
 }
-
-
-//for Go POST request see:
-//https://zetcode.com/golang/getpostrequest/

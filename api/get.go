@@ -11,7 +11,14 @@ import (
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-   resp, err := http.Get("https://api.particle.io/v1/devices/e00fce6839e00714b083442d/temperature?access_token=906d5e4a9041e4c0773cad80ccf23490fe83e76c")
+
+   //https://zimkit.vercel.app/api/get?key=temperature (Parameter key auslesen)
+   keys := r.URL.Query()["key"]
+   key := keys[0]
+
+   url := "https://api.particle.io/v1/devices/e00fce6839e00714b083442d/" + key + "?access_token=906d5e4a9041e4c0773cad80ccf23490fe83e76c"
+
+   resp, err := http.Get(url)
    if err != nil {
       log.Fatalln(err)
    }

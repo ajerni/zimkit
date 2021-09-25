@@ -9,17 +9,15 @@ import (
 
 func Handler(w http.ResponseWriter, r *http.Request) {
 
-   //use like this: https://zimkit.vercel.app/api/post?f=particleFunction&a=newMessageText
-   // https://zimkit.vercel.app/api/post?f=setmesssage&a=neu
+   //use like this: https://zimkit.vercel.app/api/postmessage?key=neuerWert
 
-   funcs := r.URL.Query()["f"] //hier wird der parameter key ausgelesen (eventname der published werden soll)
-   f := funcs[0] // die Particle.Function
+   keys := r.URL.Query()["key"] //hier wird der parameter key ausgelesen (eventname der published werden soll)
+   key := keys[0]
 
-   args := r.URL.Query()["a"]
-   a := args[] // das Argument (neuer Text)
+   f = "setmessage" //die Particle.function die aufgerufen werden soll
 
    params := url.Values{} //definiert den Body des POST request
-  	params.Add("args", a)
+  	params.Add("args", key)
   	params.Add("access_token", "906d5e4a9041e4c0773cad80ccf23490fe83e76c")
   
    resp, err := http.PostForm("https://api.particle.io/v1/devices/2c0030000447343337373739/" + f, params) //Enthält automatisch den richtigen Header mit {"Content-Type": "application/x-www-form-urlencoded"},

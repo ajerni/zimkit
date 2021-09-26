@@ -11,7 +11,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
    //use like this: https://zimkit.vercel.app/api/post?f=fuktionName&a=argumetName (f=setmessage&a=neuerWert)
 
-   f := r.URL.Query().Get("f") //die Particle.function die aufgerufen werden soll
+   f := r.URL.Query().Get("f") // die Particle.function die aufgerufen werden soll
    a := r.URL.Query().Get("a")
 
    params := url.Values{} //definiert den Body des POST request

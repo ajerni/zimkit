@@ -63,20 +63,7 @@
 				console.log($store.otherdata);
 				//some Particle fun with go serverless functions on vercel:
 				callVercel('https://zimkit.vercel.app/api/postevent?key=alarmall');
-				// fetch('https://zimkit.vercel.app/api/postevent?key=alarmall')
-				// 	.then((res) => {
-				// 		if (!res.ok) {
-				// 			throw new Error('Failed!');
-				// 		}
-				// 		return res.json();
-				// 	})
-				// 	.then((data) => {
-				// 		console.log(data.result);
-				// 		return data.result;
-				// 	})
-				// 	.catch((err) => {
-				// 		console.log(err);
-				// 	});
+				callVercel('https://zimkit.vercel.app/api/post?f=setmessage&a=' + $store.otherdata);
 			});
 
 			// put resizing code in here

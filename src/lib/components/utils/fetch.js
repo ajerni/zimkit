@@ -1,5 +1,6 @@
 let url;
 
+//GET Request (used to call serverless functions on own api on Vercel)
 function myFetch(url){
 
     fetch(url)

@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import store from '$lib/components/store.js';
-	import callVercel from '$lib/components/utils/fetch.js'
+	import callVercel from '$lib/components/utils/fetch.js';
 
 	// let nodeRef;
 	// nodeRef.parentNode.removeChild(nodeRef);
@@ -62,8 +62,21 @@
 				});
 				console.log($store.otherdata);
 				//some Particle fun with go serverless functions on vercel:
-				callVercel("https://zimkit.vercel.app/api/postevent?key=alarmall")
-
+				//callVercel('https://zimkit.vercel.app/api/postevent?key=alarmall');
+				fetch('https://zimkit.vercel.app/api/postevent?key=alarmall')
+					.then((res) => {
+						if (!res.ok) {
+							throw new Error('Failed!');
+						}
+						return res.json();
+					})
+					.then((data) => {
+						console.log(data.result);
+						return data.result;
+					})
+					.catch((err) => {
+						console.log(err);
+					});
 			});
 
 			// put resizing code in here

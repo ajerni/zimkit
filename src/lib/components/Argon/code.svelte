@@ -1,7 +1,6 @@
 <script>
 	import { CodeSnippet } from 'carbon-components-svelte/src';
-	//files in static folder are served on the root path:
-	import argon from '/assets/argon.jpg';
+	import argon from './argon.jpg';
 	
 
 	let code = `

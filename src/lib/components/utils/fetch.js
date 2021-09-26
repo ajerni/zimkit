@@ -1,6 +1,8 @@
 let url;
 
-const myFetch = fetch(url)
+function myFetch(url){
+
+    fetch(url)
 	.then((res) => {
 		if (!res.ok) {
 			throw new Error('Failed!');
@@ -13,6 +15,8 @@ const myFetch = fetch(url)
 	})
 	.catch((err) => {
 		console.log(err);
-	});
+	})
+
+} 
 
 export default myFetch;

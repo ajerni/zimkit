@@ -7,7 +7,7 @@ import (
    "log"
 )
 
-func Handler(w http.ResponseWriter, r *http.Request) {
+func MyPostFunctionHandler(w http.ResponseWriter, r *http.Request) {
 
    //use like this: https://zimkit.vercel.app/api/post?f=fuktionName&a=argumetName (f=setmessage&a=neuerWert)
 

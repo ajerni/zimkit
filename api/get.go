@@ -10,7 +10,7 @@ import (
    "fmt"
 )
 
-func Handler(w http.ResponseWriter, r *http.Request) {
+func MyGetHandler(w http.ResponseWriter, r *http.Request) {
 
    //https://zimkit.vercel.app/api/get?key=nameOfParicleVariable (Parameter key auslesen) / wenn mehrere Parameter siehe goget.go
    keys := r.URL.Query()["key"]

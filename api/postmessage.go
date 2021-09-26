@@ -1,4 +1,4 @@
-//POST Request to invoke Particle.function
+//POST Request to invoke Particle.function //generische version mit Paremeter f und a --> siehe post.go
 package handler
 
 import (

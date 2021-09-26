@@ -12,7 +12,7 @@ import (
 
 func MyGetHandler(w http.ResponseWriter, r *http.Request) {
 
-   //https://zimkit.vercel.app/api/get?key=nameOfParicleVariable (Parameter key auslesen) / wenn mehrere Parameter siehe goget.go
+   //https://zimkit.vercel.app/api/get?key=nameOfParicleVariable (Parameter key auslesen) / wenn mehrere Parameter siehe post.go
    keys := r.URL.Query()["key"]
    key := keys[0]
 

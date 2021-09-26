@@ -1,4 +1,4 @@
-export default fetch(url)
+const myFetch = fetch(url)
 	.then((res) => {
 		if (!res.ok) {
 			throw new Error('Failed!');
@@ -12,3 +12,5 @@ export default fetch(url)
 	.catch((err) => {
 		console.log(err);
 	});
+
+export default myFetch;

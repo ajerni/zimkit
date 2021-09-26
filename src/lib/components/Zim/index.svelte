@@ -57,7 +57,7 @@
 				store.update((data) => {
 					return {
 						circlesize: data.circlesize,
-						otherdata: 'RESET FROM ZIM BUTTON'
+						otherdata: 'RESET FROM ZIM'
 					};
 				});
 				console.log($store.otherdata);

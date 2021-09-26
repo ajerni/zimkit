@@ -1,3 +1,5 @@
+let url;
+
 const myFetch = fetch(url)
 	.then((res) => {
 		if (!res.ok) {

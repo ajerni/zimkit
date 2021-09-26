@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import store from '$lib/components/store.js';
-	//import callVercel from '$lib/components/utils/fetch.js';
+	import callVercel from '$lib/components/utils/fetch.js';
 
 	// let nodeRef;
 	// nodeRef.parentNode.removeChild(nodeRef);
@@ -62,7 +62,7 @@
 				});
 				console.log($store.otherdata);
 				//some Particle fun with go serverless functions on vercel:
-				callVercel.myFetch('https://zimkit.vercel.app/api/postevent?key=alarmall');
+				callVercel('https://zimkit.vercel.app/api/postevent?key=alarmall');
 				// fetch('https://zimkit.vercel.app/api/postevent?key=alarmall')
 				// 	.then((res) => {
 				// 		if (!res.ok) {

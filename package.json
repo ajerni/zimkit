@@ -17,5 +17,8 @@
     "svelte": "^3.42.6",
     "@sveltejs/adapter-vercel": "next"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "carbon-components-svelte": "^0.44.3"
+  }
 }

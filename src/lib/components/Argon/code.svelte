@@ -1,6 +1,10 @@
 <script>
-//temptinker code in build.particle.io
-    let code = `
+	import { CodeSnippet } from 'carbon-components-svelte/src';
+	//files in static folder are served on the root path:
+	import argon from '/assets/argon.jpg';
+	
+
+	let code = `
 #include <Grove_Temperature_And_Humidity_Sensor.h>
 
 #define DHTPIN 	D2
@@ -22,8 +26,17 @@ void loop()
 	t = dht.getTempCelcius();
     snprintf(strT, sizeof(strT), "%.2f", t);
 }
-`
+`;
 </script>
 
-<h2>The code running on Argon (C++)</h2>
-<h3>...show code here mit ibm library</h3>
+<img src={argon} alt="Argon"/>
+
+<h3>The code running on Argon (C++)</h3>
+<CodeSnippet type="multi" copy={() => {}} {code} hideCopyButton wrapText />
+
+<style>
+	img {
+		width: 600px;
+		height: 400px;
+	}
+</style>

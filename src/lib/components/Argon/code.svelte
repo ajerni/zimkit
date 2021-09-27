@@ -23,7 +23,7 @@ void loop()
 {
 	delay(10000);
 	t = dht.getTempCelcius();
-    snprintf(strT, sizeof(strT), "%.2f", t);
+        snprintf(strT, sizeof(strT), "%.2f", t);
 }
 `;
 </script>
@@ -31,7 +31,7 @@ void loop()
 <img src={argon} alt="Argon"/>
 
 <h3>The code running on Argon (C++)</h3>
-<CodeSnippet type="multi" copy={() => {}} {code} hideCopyButton wrapText />
+<CodeSnippet type="multi" {code}  />
 
 <style>
 	img {

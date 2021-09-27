@@ -8,6 +8,7 @@ import (
    "log"
    "net/http"
    "fmt"
+   "os"
 )
 
 func MyGetHandler(w http.ResponseWriter, r *http.Request) {
@@ -16,7 +17,7 @@ func MyGetHandler(w http.ResponseWriter, r *http.Request) {
    keys := r.URL.Query()["key"]
    key := keys[0]
 
-   url := "https://api.particle.io/v1/devices/e00fce6839e00714b083442d/" + key + "?access_token=906d5e4a9041e4c0773cad80ccf23490fe83e76c"
+   url := "https://api.particle.io/v1/devices/e00fce6839e00714b083442d/" + key + "?access_token=" + os.Getenv("MY_API_KEY")
 
    resp, err := http.Get(url)
    if err != nil {

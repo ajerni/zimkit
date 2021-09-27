@@ -5,6 +5,7 @@ import (
    "net/http"
    "net/url"
    "log"
+   "os"
 )
 
 func MyEventHandler(w http.ResponseWriter, r *http.Request) {
@@ -16,7 +17,7 @@ func MyEventHandler(w http.ResponseWriter, r *http.Request) {
 
    params := url.Values{} //definiert den Body des POST request
   	params.Add("name", key)
-  	params.Add("access_token", "906d5e4a9041e4c0773cad80ccf23490fe83e76c")
+  	params.Add("access_token", os.Getenv("MY_API_KEY"))
   	params.Add("data", "")
   
    resp, err := http.PostForm("https://api.particle.io/v1/devices/events", params) //Enthält automatisch den richtigen Header mit Content Type

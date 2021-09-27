@@ -2,9 +2,10 @@
 package handler
 
 import (
-   "net/http"
-   "net/url"
-   "log"
+	"log"
+	"net/http"
+	"net/url"
+   "os"
 )
 
 func MyMessageHandler(w http.ResponseWriter, r *http.Request) {
@@ -18,8 +19,8 @@ func MyMessageHandler(w http.ResponseWriter, r *http.Request) {
 
    params := url.Values{} //definiert den Body des POST request
   	params.Add("args", key)
-  	//params.Add("access_token", process.env.MY_API_KEY) //waiting for Vercel support?
-   params.Add("access_token", "906d5e4a9041e4c0773cad80ccf23490fe83e76c")
+  	params.Add("access_token", os.Getenv("MY_API_KEY"))
+   //params.Add("access_token", "906d5e4a9041e4c0773cad80ccf23490fe83e76c")
   
    resp, err := http.PostForm("https://api.particle.io/v1/devices/2c0030000447343337373739/" + f, params) //Enthält automatisch den richtigen Header mit {"Content-Type": "application/x-www-form-urlencoded"},
 

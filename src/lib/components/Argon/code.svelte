@@ -1,5 +1,6 @@
 <script>
 	import { CodeSnippet } from 'carbon-components-svelte/src';
+	
 	import argon from './argon.jpg';
 	
 
@@ -31,7 +32,7 @@ void loop()
 <img src={argon} alt="Argon"/>
 
 <h3>The code running on Argon (C++)</h3>
-<CodeSnippet type="multi" {code}  />
+<CodeSnippet type="multi" hideCopyButton wrapText expanded showMoreLess=false {code}  />
 
 <style>
 	img {

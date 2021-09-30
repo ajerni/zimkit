@@ -2,21 +2,24 @@
 <!-- https://rodneylab.com/getting-started-with-sveltekit/ -->
 
 <header>
-    <nav>
-            <a href="/.">Home</a>
-            <a href="/error">Error</a>
-            <a href="/temperatur">Temperatur</a>
-            <a href="/form">Form</a>
-    </nav>
+	<nav>
+		<a href="/.">Home</a>
+		<a href="/error">Error</a>
+		<a href="/temperatur">Temperatur</a>
+		<a href="/form">Form</a>
+	</nav>
 </header>
 <main>
-<slot />
+	<slot />
 </main>
 <footer>
-    <p>
-            A project by
-            <a aria-label="Open the Rodney Lab site" href="https://www.andierni.ch/" target="_blank" rel="nofollow noopener noreferrer"
-                    >ERNILABS</a
-            >.
-    </p>
+	<p>
+		A project by
+		<a
+			aria-label="Open the Rodney Lab site"
+			href="https://www.andierni.ch/"
+			target="_blank"
+			rel="nofollow noopener noreferrer">ERNILABS</a
+		>.
+	</p>
 </footer>

@@ -98,7 +98,7 @@
 
 <button on:click={getTempHum}>Get Data</button>
 
-<br>
-<br>
+<br />
+<br />
 
 <Code />

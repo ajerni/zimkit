@@ -1,7 +1,21 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-	crossorigin="anonymous"></script>
+	crossorigin="anonymous">
+
+import store from '$lib/components/store.js'
+
+let val = "";
+
+$: store.update((data) => {
+					return {
+                        circlesize: data.circlesize,
+                        otherdata: data.otherdata,
+                        startdate: val
+					};
+				});
+
+</script>
 
 <div class="container">
     <h1>Form</h1>
@@ -14,6 +28,7 @@
 				id="date-from"
                 name="start"
 				aria-describedby="dateFromHelp"
+                bind:value="{val}"
 			/>
 		</div>
 		<div class="mb-3">
@@ -23,6 +38,8 @@
 		<button type="submit" class="mb-4 btn btn-primary">Submit</button>
 	</form>
 </div>
+
+<h3>See the start date again: {val}</h3>
 
 <svelte:head>
 	<link

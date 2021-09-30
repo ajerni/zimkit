@@ -8,6 +8,7 @@ import store from '$lib/components/store.js'
 let val = "";
 let resp = "";
 
+//updates the store whenever val changes (einfach weil val rechts gebraucht wird - $: dynamschee Werte oder wie hier ganze Funktionen!)
 $: store.update((data) => {
 					return {
                         circlesize: data.circlesize,

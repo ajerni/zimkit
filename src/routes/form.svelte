@@ -5,7 +5,7 @@
 
 <div class="container">
     <h1>Form</h1>
-	<form action="https://zimkit.vercel.app/api/form">
+	<form action="https://zimkit.vercel.app/api/form" method="POST">
 		<div class="mb-3">
 			<label for="date-from" class="form-label">From:</label>
 			<input

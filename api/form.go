@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func MyFormHandler(w http.ResponseWriter, r *http.Request) {
+func PostMyFormHandler(w http.ResponseWriter, r *http.Request) {
 
    //use like this: https://zimkit.vercel.app/api/form (als action link im form)
 

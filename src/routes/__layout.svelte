@@ -4,8 +4,9 @@
 <header>
     <nav>
             <a href="/.">Home</a>
-            <a href="/contact">Contact</a>
+            <a href="/error">Error</a>
             <a href="/temperatur">Temperatur</a>
+            <a href="/form">Form</a>
     </nav>
 </header>
 <main>

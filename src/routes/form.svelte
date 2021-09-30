@@ -5,20 +5,20 @@
 
 <div class="container">
     <h1>Form</h1>
-	<form action="https://zimkit.vercel.app/api/form" method="POST">
+	<form action="https://zimkit.vercel.app/api/form" method="post">
 		<div class="mb-3">
 			<label for="date-from" class="form-label">From:</label>
 			<input
 				type="date"
 				class="form-control"
 				id="date-from"
-                name="date-from"
+                name="start"
 				aria-describedby="dateFromHelp"
 			/>
 		</div>
 		<div class="mb-3">
 			<label for="date-to" class="form-label">To:</label>
-			<input type="date" class="form-control" id="date-to" name="date-to"/>
+			<input type="date" class="form-control" id="date-to" name="end"/>
 		</div>
 		<button type="submit" class="mb-4 btn btn-primary">Submit</button>
 	</form>

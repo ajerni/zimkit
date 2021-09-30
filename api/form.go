@@ -14,10 +14,9 @@ func PostMyFormHandler(w http.ResponseWriter, r *http.Request) {
    start := r.FormValue("start")
    end := r.FormValue("end")
 
+   //Verschiedene Möglichkeiten für print:
    w.Write([]byte(fmt.Sprintf("The start date is %s and the end date is %s", start, end)))
    fmt.Fprintf(w, r.FormValue("start"))
    w.Write([]byte("Ende: " + end))
-   
-
    
 }

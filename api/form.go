@@ -11,7 +11,7 @@ func PostMyFormHandler(w http.ResponseWriter, r *http.Request) {
    //use like this: https://zimkit.vercel.app/api/form (als action link im form)
 
    //f := r.URL.Query().Get("f") // um Query Vars auszulesen
-   start := r.FormValue("start")
+   start := r.FormValue("start") //the name= in the form
    end := r.FormValue("end")
 
    //Verschiedene Möglichkeiten für print:

@@ -9,7 +9,7 @@ import (
 
 type jsonResponse struct {
 	OK        bool   `json:"ok"`
-	Message   string `json:"Message"`
+	Message   string `json:"message"`
 	Start     string `json:"start"`
 	End       string `json:"end"`
 	Sonstiges string `json:"sonstiges"`

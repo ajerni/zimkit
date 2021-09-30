@@ -28,6 +28,7 @@ function handleSubmit(){
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            console.log(data.message);
             resp = data.sonstiges;
         })
 }

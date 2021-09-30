@@ -6,6 +6,7 @@
 import store from '$lib/components/store.js'
 
 let val = "";
+let resp = "";
 
 $: store.update((data) => {
 					return {
@@ -15,11 +16,28 @@ $: store.update((data) => {
 					};
 				});
 
+function handleSubmit(){
+
+    let form = document.getElementById("myForm");
+    let formData = new FormData(form);
+
+    fetch('https://zimkit.vercel.app/api/form-json', {
+        method: "post",
+        body: formData,
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            resp = data.sonstiges;
+        })
+}
+
 </script>
 
 <div class="container">
     <h1>Form</h1>
-	<form action="https://zimkit.vercel.app/api/form" method="post">
+    <form id="myForm" on:submit|preventDefault={handleSubmit}>
+	<!-- <form action="https://zimkit.vercel.app/api/form" method="post"> -->
 		<div class="mb-3">
 			<label for="date-from" class="form-label">From:</label>
 			<input
@@ -40,6 +58,7 @@ $: store.update((data) => {
 </div>
 
 <h3>See the start date again: {val}</h3>
+<h3>Response aus JSON: {resp}</h3>
 
 <svelte:head>
 	<link

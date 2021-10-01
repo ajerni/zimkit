@@ -31,22 +31,6 @@ function handleSubmit(){
         })
 }
 
-function handle2(){
-
-	fetch('https://zimkit.vercel.app/api/form-redirect')
-			.then((res) => {
-				if (!res.ok) {
-					throw new Error('Failed!');
-				}
-				return res.json();
-			})
-			.then((data) => {
-				console.log(data);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-}
 
 </script>
 
@@ -70,7 +54,7 @@ function handle2(){
 			<input type="date" class="form-control" id="date-to" name="end"/>
 		</div>
 		<button type="submit" class="mb-4 btn btn-primary">Submit</button>
-		<button class="mb-4 btn btn-primary" on:click={handle2}>Submit with redirect</button>
+	
 	</form>
 	
 </div>

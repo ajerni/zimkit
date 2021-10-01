@@ -37,6 +37,6 @@ func PostMyFormHandlerJson(w http.ResponseWriter, r *http.Request) {
 	// w.Header().Set("Content-Type", "aplication/json")
 	// w.Write(out)
 
-	http.Redirect(w, r, "https://zimkit.vercel.app/redirected", http.StatusSeeOther)
+	http.Redirect(w, r, "/redirected", http.StatusSeeOther)
 }
 

@@ -32,8 +32,6 @@ function handleSubmit(){
 }
 
 function handle2(){
-	let form = document.getElementById("myForm");
-    let formData = new FormData(form);
 
 	fetch('https://zimkit.vercel.app/api/form-redirect')
 			.then((res) => {

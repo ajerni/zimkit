@@ -1,4 +1,4 @@
-// Reading From data and returning a JSON
+// Redirect
 package handler
 
 import (
@@ -17,19 +17,14 @@ type jsonResponse struct {
 
 func PostMyFormHandlerJson(w http.ResponseWriter, r *http.Request) {
 	
-	//use data from the Request
-	start := r.FormValue("start")
-	end := r.FormValue("end")
-
-	//do Database interaction etc.
 
 	//create and send JSON response
 	resp := jsonResponse{
 		OK:        true,
 		Message:   "Hallo aus der Serverless go function",
-		Start:     start,
-		End:       end,
-		Sonstiges: "Eigenes Zeugs vom " + start,
+		Start:     "fake",
+		End:       "data",
+		Sonstiges: "Eigenes Zeugs in JSON.",
 	}
 
 	out, err := json.MarshalIndent(resp, "", "   ")
@@ -44,3 +39,4 @@ func PostMyFormHandlerJson(w http.ResponseWriter, r *http.Request) {
 
 	http.Redirect(w, r, "https://zimkit.vercel.app/redirected", http.StatusSeeOther)
 }
+

@@ -35,15 +35,19 @@ function handle2(){
 	let form = document.getElementById("myForm");
     let formData = new FormData(form);
 
-    fetch('https://zimkit.vercel.app/api/form-redirect', {
-        method: "post",
-        body: formData,
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            console.log(data.message);
-        }).catch(err => console.log(err))
+	fetch('https://zimkit.vercel.app/api/form-redirect')
+			.then((res) => {
+				if (!res.ok) {
+					throw new Error('Failed!');
+				}
+				return res.json();
+			})
+			.then((data) => {
+				console.log(data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 }
 
 </script>

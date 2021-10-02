@@ -1,7 +1,7 @@
 <script>
 	import store from '$lib/components/store.js';
 	import Zim from '$lib/components/Zim/index.svelte';
-	import callVercel from '$lib/components/utils/fetch.js';
+	// import callVercel from '$lib/components/utils/fetch.js';
 
 	let wert = $store.otherdata;
 	let sizeA = $store.circlesize;
@@ -40,11 +40,11 @@
 
 {#if resp != 'gugus'}
 	<h3>{resp}</h3>
-	<!-- <a href="https://zimkit.vercel.app/api/redirect"><p>Also see Photon message changed on IOT Dashboard</p></a> -->
+	<a href="https://zimkit.vercel.app/api/redirect"><p>Also see Photon message changed on IOT Dashboard</p></a>
 	<!-- Umweg über serverless go function rediredt zu Demo Zwecken (Link geht auf iot.andierni.ch) -->
-	<p on:click={() => callVercel('https://zimkit.vercel.app/api/redirect')}>
+	<!-- <p on:click={() => callVercel('https://zimkit.vercel.app/api/redirect')}>
 		Also see Photon message changed on IOT Dashboard
-	</p>
+	</p> -->
 {/if}
 
 <button on:click={makeZim}>Make ZIM</button>

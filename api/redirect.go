@@ -6,5 +6,5 @@ import (
 )
 
 func RedirectHandler(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "https://iot.andierni.ch", http.StatusFound)
+	http.Redirect(w, r, "https://iot.andierni.ch", http.StatusSeeOther)
 }

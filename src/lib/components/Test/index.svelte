@@ -43,7 +43,7 @@
 	<!-- <a href="https://zimkit.vercel.app/api/redirect"><p>Also see Photon message changed on IOT Dashboard</p></a> -->
 	<!-- Umweg über serverless go function rediredt zu Demo Zwecken (Link geht auf iot.andierni.ch) -->
 	<p on:click={() => callVercel('https://zimkit.vercel.app/api/redirect')}>
-		Also see Photon message changed on IOT Dashboard>
+		Also see Photon message changed on IOT Dashboard
 	</p>
 {/if}
 

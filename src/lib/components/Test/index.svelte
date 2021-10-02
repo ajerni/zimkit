@@ -39,6 +39,8 @@
 
 {#if resp != 'gugus'}
 	<h3>{resp}</h3>
+	<a href="https://zimkit.vercel.app/api/redirect"><p>Also see Photon message changed on IOT Dashboard</p></a>
+	<!-- Umweg über serverless go function rediredt zu Demo Zwecken (Link geht auf iot.andierni.ch) -->
 {/if}
 
 <button on:click={makeZim}>Make ZIM</button>

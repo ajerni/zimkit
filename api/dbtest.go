@@ -10,7 +10,7 @@ import (
 
 func MyDbHandler(w http.ResponseWriter, r *http.Request) {
 
-	db, err := sql.Open("mysql", "andiroot:LetMeIn1976@tcp(xnmxviali589.db.solnet.ch)/andigodb")
+	db, err := sql.Open("mysql", "andiroot:letmein@tcp(xnmxviali589.db.solnet.ch)/andigodb")
 
     // if there is an error opening the connection, handle it
     if err != nil {

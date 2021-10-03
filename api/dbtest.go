@@ -27,8 +27,6 @@ func MyDbHandler(w http.ResponseWriter, r *http.Request) {
     }
 
 	fmt.Fprintf(w, fmt.Sprintf("Result: %s", results))
-
-	defer db.Close()
    
 // // Capture connection properties.
 // cfg := mysql.Config{

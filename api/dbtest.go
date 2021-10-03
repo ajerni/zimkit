@@ -8,8 +8,6 @@ import (
     _ "github.com/go-sql-driver/mysql"
 )
 
-var db *sql.DB
-
 func MyDbHandler(w http.ResponseWriter, r *http.Request) {
 
 	db, err := sql.Open("mysql", "andiroot:LetMeIn1976@tcp(xnmxviali589.db.solnet.ch)/andigodb")

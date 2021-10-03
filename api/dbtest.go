@@ -21,7 +21,7 @@ func MyDbHandler(w http.ResponseWriter, r *http.Request) {
     defer db.Close()
 
     // Execute the query
-    results, err := db.Query("SELECT * FROM gotabel WHERE id = 2")
+    results, err := db.Query("SELECT * FROM gotable WHERE id = 2")
     if err != nil {
         panic(err.Error()) // proper error handling instead of panic in your app
     }

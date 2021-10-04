@@ -62,8 +62,8 @@ func getAllRows(conn *sql.DB, w http.ResponseWriter) error {
 			log.Println(err)
 			return err
 		}
-		//fmt.Println("Record is", id, firstName, lastName, email)
-		fmt.Fprintf(w, fmt.Sprintf("Record is %d %s %s %s", id, firstName, lastName, email))
+		// fmt.Println("Record is", id, firstName, lastName, email)
+		fmt.Fprintf(w, fmt.Sprintf("Record is %d %s %s %s\n", id, firstName, lastName, email))
 	}
 
 	if err = rows.Err(); err != nil {

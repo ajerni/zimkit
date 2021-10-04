@@ -13,6 +13,7 @@
 		<a href="/error">Error</a>
 		<a href="/temperatur">Temperatur</a>
 		<a href="/form">Form</a>
+		<a href="/form">DB Heroku</a>
 	</nav>
 </header>
 <main>

@@ -55,17 +55,17 @@ func getAllRows(conn *sql.DB, w http.ResponseWriter) error {
 	}
 	defer rows.Close()
 
-	var firstName, lastName, email string
+	var firstName, lastName string
 	var id int
 
 	for rows.Next() {
-		err := rows.Scan(&id, &firstName, &lastName, &email)
+		err := rows.Scan(&id, &firstName, &lastName)
 		if err != nil {
 			log.Println(err)
 			return err
 		}
 		// fmt.Println("Record is", id, firstName, lastName, email)
-		fmt.Fprintf(w, fmt.Sprintf("Record is %d %s %s %s\n", id, firstName, lastName, email))
+		fmt.Fprintf(w, fmt.Sprintf("Record is %d %s %s\n", id, firstName, lastName))
 	}
 
 	if err = rows.Err(); err != nil {

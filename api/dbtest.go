@@ -5,13 +5,14 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	_ "github.com/jackc/pgx/v4/stdlib"
 )
 
 func MyDBHandler(w http.ResponseWriter, r *http.Request) {
-	conn, err := sql.Open("pgx", "host=ec2-34-242-89-204.eu-west-1.compute.amazonaws.com port=5432 dbname=dc6sc248lptkch user=wweeunqhtbukan password=63eb2d71cecda037bc505a347fa215681f21692d2ac9d03f6dbb2194093af577")
+	conn, err := sql.Open("pgx", "host=ec2-34-242-89-204.eu-west-1.compute.amazonaws.com port=5432 dbname="+os.Getenv("DB_NAME")+" user=wweeunqhtbukan password="+os.Getenv("DB_PW"))
 	if err != nil {
 		log.Fatal(fmt.Sprintf("Unable to connect: %v\n", err))
 	}

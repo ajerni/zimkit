@@ -42,10 +42,11 @@ func MyDBHandler(w http.ResponseWriter, r *http.Request) {
 
 func getAllRows(conn *sql.DB, w http.ResponseWriter) error {
 	// rows, err := conn.Query("select id, first_name, last_name from users")
-	q := `
-		select u.id, u.first_name, u.last_name, e.email from users u
-		inner join emails e on (e.user_id = u.id)
-	`
+	// q := `
+	// 	select u.id, u.first_name, u.last_name, e.email from users u
+	// 	inner join emails e on (e.user_id = u.id)
+	// `
+	q := `select id, first_name, last_name from users`
 
 	rows, err := conn.Query(q)
 	if err != nil {

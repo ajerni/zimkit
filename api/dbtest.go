@@ -33,13 +33,13 @@ func MyDBHandler(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	err = getAllRows(conn)
+	err = getAllRows(conn, w)
 	if err != nil {
 		log.Fatal(err)
 	}
 }
 
-func getAllRows(conn *sql.DB) error {
+func getAllRows(conn *sql.DB, w http.ResponseWriter) error {
 	// rows, err := conn.Query("select id, first_name, last_name from users")
 	q := `
 		select u.id, u.first_name, u.last_name, e.email from users u

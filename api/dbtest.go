@@ -5,49 +5,69 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 
-	_ "github.com/go-sql-driver/mysql"
+	_ "github.com/jackc/pgx/v4/stdlib"
 )
 
-func MyDbHandler(w http.ResponseWriter, r *http.Request) {
-	db, err := sql.Open("mysql", "andiroot:letmein@tcp(xnmxviali589.db.solnet.ch:3306)/andigodb")
-	// if there is an error opening the connection, handle it
+func MyDBHandler(w http.ResponseWriter, r *http.Request) {
+	conn, err := sql.Open("pgx", "host=ec2-34-242-89-204.eu-west-1.compute.amazonaws.com port=5432 dbname=dc6sc248lptkch user=wweeunqhtbukan password=63eb2d71cecda037bc505a347fa215681f21692d2ac9d03f6dbb2194093af577")
 	if err != nil {
-		log.Print(err.Error())
+		log.Fatal(fmt.Sprintf("Unable to connect: %v\n", err))
 	}
-	defer db.Close()
+	defer conn.Close()
 
-	// Execute the query
-	results, err := db.Query("SELECT * FROM gotable WHERE id = 2")
+	log.Println("Connected to database!")
+
+	// test my connection
+	err = conn.Ping()
 	if err != nil {
-		panic(err.Error()) // proper error handling instead of panic in your app
+		log.Fatal("Cannot ping database!")
 	}
 
-	fmt.Fprintf(w, fmt.Sprintf("Result: %s", results))
+	log.Println("Pinged database!")
 
-	// // Capture connection properties.
-	// cfg := mysql.Config{
-	// 	// User:   os.Getenv("DBUSER"),
-	// 	// Passwd: os.Getenv("DBPASS"),
-	// 	User: "andiroot",
-	// 	Passwd: "LetMeIn1976",
-	// 	Net:    "tcp",
-	// 	Addr:   "xnmxviali589.db.solnet.ch",
-	// 	DBName: "andigodb",
-	// }
-	// // Get a database handle.
-	// var err error
-	// db, err = sql.Open("mysql", cfg.FormatDSN())
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
+	query := `insert into users (first_name, last_name, created_at, updated_at) values ($1, $2, $3, $4)`
+	_, err = conn.Exec(query, "Andi", "Mehrfach", time.Now(), time.Now())
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	// pingErr := db.Ping()
-	// if pingErr != nil {
-	// 	log.Fatal(pingErr)
-	// }
-	// fmt.Println("Connected!")
+	err = getAllRows(conn)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
 
-	// row := db.QueryRow("SELECT * FROM gotable WHERE id = 2")
-	// fmt.Fprintf(w, fmt.Sprintf("Result %s", row))
+func getAllRows(conn *sql.DB) error {
+	// rows, err := conn.Query("select id, first_name, last_name from users")
+	q := `
+		select u.id, u.first_name, u.last_name, e.email from users u
+		inner join emails e on (e.user_id = u.id)
+	`
+
+	rows, err := conn.Query(q)
+	if err != nil {
+		log.Println(err)
+		return err
+	}
+	defer rows.Close()
+
+	var firstName, lastName, email string
+	var id int
+
+	for rows.Next() {
+		err := rows.Scan(&id, &firstName, &lastName, &email)
+		if err != nil {
+			log.Println(err)
+			return err
+		}
+		fmt.Println("Record is", id, firstName, lastName, email)
+	}
+
+	if err = rows.Err(); err != nil {
+		log.Fatal("Error scanning rows", err)
+	}
+
+	return nil
 }

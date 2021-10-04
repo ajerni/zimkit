@@ -17,6 +17,7 @@
 	</nav>
 </header>
 <main>
+	<button><a href="https://zimkit.vercel.app/api/dbadd">Add temp</a></button>
 	<slot />
 </main>
 <footer>

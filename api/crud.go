@@ -1,3 +1,7 @@
+//Postgres DB on Heroku
+//https://data.heroku.com/datastores/fc7cf940-746e-40a2-bb73-d1649253550e#administration
+
+
 package handler
 
 import (

@@ -107,7 +107,8 @@ func getAllRows(conn *sql.DB, w http.ResponseWriter) error {
 	var firstName, lastName string
 	var id int
 
-	var List []string
+	//var List []string
+	var Text string = "hupets"
 
 	for rows.Next() {
 		err := rows.Scan(&id, &firstName, &lastName)
@@ -116,7 +117,7 @@ func getAllRows(conn *sql.DB, w http.ResponseWriter) error {
 			return err
 		}
 
-		List = append(List, fmt.Sprintf("<li>Record is %d %s %s\n</li>", id, firstName, lastName))
+		//List = append(List, fmt.Sprintf("<li>Record is %d %s %s\n</li>", id, firstName, lastName))
 
 		//w.Header().Set("Content-Type", "text/html; charset=utf-8") // standard ist text/plain --> https://stackoverflow.com/questions/38110875/how-to-display-html-string-as-a-web-page-using-golang-http-responsewriter
 		// fmt.Fprintf(w, fmt.Sprintf("Record is %d %s %s\n", id, firstName, lastName))
@@ -124,15 +125,17 @@ func getAllRows(conn *sql.DB, w http.ResponseWriter) error {
 		
 	}
 
+	// {{range $element := .List}} {{$element}} {{end}}
+
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 
 	t := template.Must(template.New("").Parse(`
 		<h2>Result:</h2>
 		<ul>
-		{{range $element := .List}} {{$element}} {{end}}
+		{{.Text}}
 		</ul>
 		`))
-		t.Execute(w, List)
+		t.Execute(w, Text)
 
 	if err = rows.Err(); err != nil {
 		log.Fatal("Error scanning rows", err)

@@ -45,7 +45,7 @@ func MyCrudHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	case "r":
 		// Read one (select)
-		query := `select * from users where id = $1`
+		query := `select id, first_name, last_name from users where id = $1`
 		_, err = conn.Exec(query, id_req)
 		if err != nil {
 			log.Fatal(err)
@@ -69,11 +69,7 @@ func MyCrudHandler(w http.ResponseWriter, r *http.Request) {
 			log.Fatal(err)
 		}
 	default:
-		// Read all
-		err = getAllRows(conn, w)
-		if err != nil {
-			log.Fatal(err)
-		}
+		log.Default()
 	}
 
 	err = getAllRows(conn, w)

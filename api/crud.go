@@ -46,15 +46,21 @@ func MyCrudHandler(w http.ResponseWriter, r *http.Request) {
 	case "r":
 		// Read one (select)
 		query := `select id, first_name, last_name from users where id = $1`
-		_, err = conn.Exec(query, id_req)
+
+		var firstName, lastName string
+		var id int
+
+		row := conn.QueryRow(query, id_req)
+		err = row.Scan(&id, &firstName, &lastName)
 		if err != nil {
 			log.Fatal(err)
 		}
+		fmt.Fprintf(w, fmt.Sprintf("QueryRow returns %d %s %s", id, firstName, lastName))
 	case "u":
 		// Update
 		query := `
 		UPDATE users
-		SET first_name = $1, last_name= $2
+		SET first_name = $1, last_name = $2
 		WHERE id = $3;
 		`
 		_, err = conn.Exec(query, first, last, id_req)

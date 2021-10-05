@@ -34,8 +34,9 @@ func MyCrudHandler(w http.ResponseWriter, r *http.Request) {
 
 	log.Println("Pinged database!")
 
-	// switch throug CRUD operations
+	// switch thru CRUD operations
 	switch operation {
+
 	case "c":
 		// Create (insert)
 		query := `insert into users (first_name, last_name, created_at, updated_at) values ($1, $2, $3, $4)`
@@ -43,6 +44,7 @@ func MyCrudHandler(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			log.Fatal(err)
 		}
+
 	case "r":
 		// Read one (select)
 		query := `select id, first_name, last_name from users where id = $1`
@@ -56,7 +58,9 @@ func MyCrudHandler(w http.ResponseWriter, r *http.Request) {
 			log.Fatal(err)
 		}
 		fmt.Fprintf(w, fmt.Sprintf("QueryRow returns %d %s %s", id, firstName, lastName))
+
 		return
+
 	case "u":
 		// Update
 		query := `
@@ -68,6 +72,7 @@ func MyCrudHandler(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			log.Fatal(err)
 		}
+
 	case "d":
 		// Delete
 		query := `delete from users where id = $1`

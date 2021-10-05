@@ -56,6 +56,7 @@ func MyCrudHandler(w http.ResponseWriter, r *http.Request) {
 			log.Fatal(err)
 		}
 		fmt.Fprintf(w, fmt.Sprintf("QueryRow returns %d %s %s", id, firstName, lastName))
+		return
 	case "u":
 		// Update
 		query := `

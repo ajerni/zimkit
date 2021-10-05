@@ -107,8 +107,9 @@ func getAllRows(conn *sql.DB, w http.ResponseWriter) error {
 	var firstName, lastName string
 	var id int
 
-	//var List []string
-	var Text string = "hupets"
+	type Data struct {
+		DataFields []string
+	}
 
 	for rows.Next() {
 		err := rows.Scan(&id, &firstName, &lastName)
@@ -135,7 +136,7 @@ func getAllRows(conn *sql.DB, w http.ResponseWriter) error {
 		{{.Text}}
 		</ul>
 		`))
-		t.Execute(w, Text)
+		t.Execute(w, Data{DataFields: []string{"A", "B", "C"}})
 
 	if err = rows.Err(); err != nil {
 		log.Fatal("Error scanning rows", err)

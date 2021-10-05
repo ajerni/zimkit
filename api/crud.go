@@ -1,12 +1,12 @@
-//Postgres DB on Heroku
-//https://data.heroku.com/datastores/fc7cf940-746e-40a2-bb73-d1649253550e#administration
-
+// Postgres DB on Heroku
+// https://data.heroku.com/datastores/fc7cf940-746e-40a2-bb73-d1649253550e#administration
 
 package handler
 
 import (
 	"database/sql"
 	"fmt"
+	"html/template"
 	"log"
 	"net/http"
 	"os"
@@ -107,6 +107,8 @@ func getAllRows(conn *sql.DB, w http.ResponseWriter) error {
 	var firstName, lastName string
 	var id int
 
+	var List []string
+
 	for rows.Next() {
 		err := rows.Scan(&id, &firstName, &lastName)
 		if err != nil {
@@ -114,10 +116,21 @@ func getAllRows(conn *sql.DB, w http.ResponseWriter) error {
 			return err
 		}
 
-		w.Header().Set("Content-Type", "text/html; charset=utf-8") //standard ist text/plain --> https://stackoverflow.com/questions/38110875/how-to-display-html-string-as-a-web-page-using-golang-http-responsewriter
-		//fmt.Fprintf(w, fmt.Sprintf("Record is %d %s %s\n", id, firstName, lastName))
-		fmt.Fprintf(w, fmt.Sprintf("<li>Record is %d %s %s\n</li>", id, firstName, lastName))
+		List = append(List, fmt.Sprintf("<li>Record is %d %s %s\n</li>", id, firstName, lastName))
+
+		//w.Header().Set("Content-Type", "text/html; charset=utf-8") // standard ist text/plain --> https://stackoverflow.com/questions/38110875/how-to-display-html-string-as-a-web-page-using-golang-http-responsewriter
+		// fmt.Fprintf(w, fmt.Sprintf("Record is %d %s %s\n", id, firstName, lastName))
+		// fmt.Fprintf(w, fmt.Sprintf("<li>Record is %d %s %s\n</li>", id, firstName, lastName))
+		
 	}
+
+	t := template.Must(template.New("").Parse(`
+		<h2>Result:</h2>
+		<ul>
+		{{range $element := .List}} {{$element}} {{end}}
+		</ul>
+		`))
+		t.Execute(os.Stdout, nil)
 
 	if err = rows.Err(); err != nil {
 		log.Fatal("Error scanning rows", err)

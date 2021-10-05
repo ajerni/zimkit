@@ -132,7 +132,7 @@ func getAllRows(conn *sql.DB, w http.ResponseWriter) error {
 		{{range $element := .List}} {{$element}} {{end}}
 		</ul>
 		`))
-		t.Execute(w, nil)
+		t.Execute(w, List)
 
 	if err = rows.Err(); err != nil {
 		log.Fatal("Error scanning rows", err)

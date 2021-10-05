@@ -124,6 +124,8 @@ func getAllRows(conn *sql.DB, w http.ResponseWriter) error {
 		
 	}
 
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+
 	t := template.Must(template.New("").Parse(`
 		<h2>Result:</h2>
 		<ul>

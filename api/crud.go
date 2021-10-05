@@ -110,8 +110,9 @@ func getAllRows(conn *sql.DB, w http.ResponseWriter) error {
 			return err
 		}
 
-		// TODO: retun html
-		fmt.Fprintf(w, fmt.Sprintf("Record is %d %s %s\n", id, firstName, lastName))
+		w.Header().Set("Content-Type", "text/html; charset=utf-8") //standard ist text/plain --> https://stackoverflow.com/questions/38110875/how-to-display-html-string-as-a-web-page-using-golang-http-responsewriter
+		//fmt.Fprintf(w, fmt.Sprintf("Record is %d %s %s\n", id, firstName, lastName))
+		fmt.Fprintf(w, fmt.Sprintf("<li>Record is %d %s %s\n</li>", id, firstName, lastName))
 	}
 
 	if err = rows.Err(); err != nil {

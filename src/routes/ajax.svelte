@@ -12,7 +12,7 @@
 			//callback function für Ajax
 			if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 				var resp = xhr.responseText; //wird true oder false retournieren --> siehe api/ajax.go
-				console.log(resp);
+                console.log(resp);
 				if (resp === 'true') {
 					show = true;
 				} else {

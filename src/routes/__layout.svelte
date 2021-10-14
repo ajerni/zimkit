@@ -14,6 +14,7 @@
 		<a href="/temperatur">Temperatur</a>
 		<a href="/form">Form</a>
 		<a href="/heroku">DB Heroku</a>
+		<a href="/ajax">AJAX Example</a>
 	</nav>
 </header>
 <main>

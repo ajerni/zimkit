@@ -16,6 +16,7 @@ import (
 
 func MyCrudHandler(w http.ResponseWriter, r *http.Request) {
 	// use like https://zimkit.vercel.app/api/crud?op=c,r,u,d&id=xyz&first=xyz&last=xyz
+	// auch bei Google Cloud Functions: https://us-east1-erni-gotest.cloudfunctions.net/crud
 
 	operation := r.URL.Query().Get("op")
 	id_req := r.URL.Query().Get("id")

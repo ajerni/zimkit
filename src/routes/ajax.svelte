@@ -37,6 +37,7 @@
 {#if show}
 	<p class="warning">Username {user} ist bereits vergeben</p>
 {/if}
+<br />
 
 <style>
 	.warning {

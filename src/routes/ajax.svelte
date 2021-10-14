@@ -13,7 +13,11 @@
 			if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 				var resp = xhr.responseText; //wird true oder false retournieren --> siehe api/ajax.go
 				console.log(resp);
-				show = resp;
+				if (resp === 'true') {
+					show = true;
+				} else {
+					show = false;
+				}
 			}
 		});
 		xhr.send(user);

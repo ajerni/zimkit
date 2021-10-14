@@ -2,12 +2,14 @@
 	var show = false;
 	var user = '';
 
-	var xhr = new XMLHttpRequest(); //Ajax Objekt
+	var xhr; //Ajax Objekt
 
-	$: () => {
+	$: {
 		console.log(user);
+		xhr = new XMLHttpRequest();
 		xhr.open('POST', 'https://zimkit.vercel.app/api/ajax', true);
-		xhr.addEventListener('readystatechange', function () { //callback function für Ajax
+		xhr.addEventListener('readystatechange', function () {
+			//callback function für Ajax
 			if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 				var resp = xhr.responseText; //wird true oder false retournieren --> siehe api/ajax.go
 				console.log(resp);
@@ -15,7 +17,7 @@
 			}
 		});
 		xhr.send(user);
-	};
+	}
 
 	//var userForm = document.querySelector('#username');
 
@@ -42,7 +44,14 @@
 	<input type="text" id="username" name="username" placeholder="username" bind:value={user} />
 </form>
 <br />
-
+<p>Username: {user}</p>
+<br />
 {#if show}
-	<p>Username {user} ist bereits vergeben</p>
+	<p class="warning">Username {user} ist bereits vergeben</p>
 {/if}
+
+<style>
+	.warning {
+		color: red;
+	}
+</style>

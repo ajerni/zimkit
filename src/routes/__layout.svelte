@@ -13,8 +13,8 @@
       <div class="py-5">
         <h1 class="display-5 fw-bold text-white">Andi's Web-Kit</h1>
         <div class="col-lg-6 mx-auto">
-          <p class="fs-5 mb-4">
-            Svelte Frontend - Go serverless functions backend
+          <p class="fs-5 mb-4 text-white">
+            Svelte Frontend - Go backend
           </p>
 		  <p class="fs-5 mb-4">
             Reference. Template. Toolkit. Playground.
@@ -42,13 +42,15 @@
     </div>
 
 <main>
-	<slot />
+	<div class="w-75 p-3">
+		<slot />
+	</div>
 </main>
 
-<footer class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-	
-	<p>A project by <a href="https://www.andierni.ch/" target="_blank" rel="nofollow noopener noreferrer">ERNILABS</a>.</p>
-
+<footer>
+	<div class="bg-dark text-secondary py-4 text-center">  
+		A project by <a href="https://www.andierni.ch/" target="_blank" rel="nofollow noopener noreferrer">ERNILABS</a>.
+	</div>
 </footer>
 
 <svelte:head>

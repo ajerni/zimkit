@@ -42,7 +42,7 @@
     </div>
 
 <main>
-	<div class="w-75 p-3">
+	<div class="min-vh-100 w-100 p-4">
 		<slot />
 	</div>
 </main>

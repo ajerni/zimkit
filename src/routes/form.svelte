@@ -35,7 +35,7 @@ function handleSubmit(){
 </script>
 
 <div class="container">
-    <h1>Form</h1>
+    <h1 class="mt-3">Form</h1>
     <form id="myForm" on:submit|preventDefault={handleSubmit}>
 	<!-- <form action="https://zimkit.vercel.app/api/form" method="post"> -->
 		<div class="mb-3">

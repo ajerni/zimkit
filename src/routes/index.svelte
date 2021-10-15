@@ -1,1 +1,5 @@
-<h1>Home to be done</h1>
+<div class="container">
+
+<h1 class="mt-3">Home</h1>
+
+</div>

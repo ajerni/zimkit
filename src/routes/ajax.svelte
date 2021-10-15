@@ -25,6 +25,10 @@
 
 </script>
 
+<div class="container">
+
+	<h1 class="mt-3">AJAX</h1>
+
 <p>Checkt mit jeder Eingabe über AJAX request, ob username schon vergeben ist.</p>
 <p>"Andi" + "Max" sind die einzigen vergebenen Namen in diesem Beispiel.</p>
 
@@ -38,6 +42,8 @@
 	<p class="warning">Username {user} ist bereits vergeben</p>
 {/if}
 <br />
+
+</div>
 
 <style>
 	.warning {

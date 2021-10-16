@@ -1,31 +1,16 @@
 <script>
-    import { Accordion, AccordionItem, Collapse, Button, Card } from 'sveltestrap';
-    let isOpen = false;
+	import { Accordion, AccordionItem } from 'sveltestrap';
 </script>
 
 <div class="container">
+	<h1 class="mt-3">Home</h1>
 
-<h1 class="mt-3">Home</h1>
-
-  <Accordion>
-    <AccordionItem active header="Home">Fallbrook</AccordionItem>
-    <AccordionItem header="School">
-      <a href="#home">Buena Vista Elementary</a>
-    </AccordionItem>
-    <AccordionItem header="Library">UCSB Library</AccordionItem>
-  </Accordion>
-
-  <hr>
-
-  <Button color="primary" on:click={() => (isOpen = !isOpen)} class="mb-3">
-    Toggle
-  </Button>
-  <Collapse {isOpen}>
-    <Card body>
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-      richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-      anderson cred nesciunt sapiente ea proident.
-    </Card>
-  </Collapse>
-
+	<Accordion>
+		<AccordionItem active header="ZIM">Explain ZIM Page</AccordionItem>
+		<AccordionItem active header="Error">Explain Error Page</AccordionItem>
+        <AccordionItem active header="Sensor">Explain Sensor</AccordionItem>
+        <AccordionItem active header="Form">Explain Form</AccordionItem>
+        <AccordionItem active header="Database">Explain Database</AccordionItem>
+        <AccordionItem active header="Ajax">Explain Ajax</AccordionItem>
+	</Accordion>
 </div>

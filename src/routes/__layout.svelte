@@ -3,6 +3,8 @@
 	import { Accordion, AccordionItem, Collapse, Button, Card } from 'sveltestrap';
 	let isOpen = false;
 	('src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"');
+	var myScreenOrientation = window.screen.orientation;
+	myScreenOrientation.lock('portrait');
 </script>
 
 <!-- src/routes/__layout.svelte wird für alle pages angewandt -->
@@ -135,7 +137,7 @@
 <svelte:head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+	<meta http-equiv="ScreenOrientation" content="autoRotate:disabled" />
 
 	<link
 		rel="stylesheet"
@@ -176,18 +178,4 @@
 			display: block;
 		}
 	}
-
-	@media screen and (min-width: 576px) and (orientation: landscape) {
-	:global(html) {
-    transform: rotate(-90deg);
-    transform-origin: left top;
-    width: 100vh;
-    overflow-x: hidden;
-    position: absolute;
-    top: 100%;
-    left: 0;
-  }
-}
-
-
 </style>

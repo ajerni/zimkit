@@ -118,7 +118,7 @@
 
 <main>
 	<div class="min-vh-100 min-vw-100 p-4">
-	<!-- <div class="min-vh-100 w-100 p-4"> -->
+		<!-- <div class="min-vh-100 w-100 p-4"> -->
 		<slot />
 	</div>
 </main>
@@ -135,8 +135,7 @@
 
 <svelte:head>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta http-equiv="ScreenOrientation" content="autoRotate:disabled" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
 	<link
 		rel="stylesheet"

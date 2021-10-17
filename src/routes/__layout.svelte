@@ -177,7 +177,7 @@
 		}
 	}
 
-	@media screen and (max-width: 576px) and (orientation: landscape) {
+	@media screen and (min-width: 576px) and (orientation: landscape) {
 	:global(html) {
     transform: rotate(-90deg);
     transform-origin: left top;

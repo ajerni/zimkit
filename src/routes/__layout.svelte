@@ -16,7 +16,8 @@
 			<p class="fs-5 mb-4 text-white">Svelte Frontend - Go backend</p>
 			<p class="fs-5 mb-4">Reference. Template. Toolkit. Playground.</p>
 			<div class="custom-class-big">
-				<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+				<div class="d-flex justify-content-around">
+				<!-- <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"> -->
 					<a href="/"
 						><button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold custom"
 							>Home</button
@@ -161,7 +162,7 @@
 		display: none;
 	}
 
-	@media only screen and (max-width: 576px) {
+	@media only screen and (max-width: 992px) {
 		.custom-class {
 			display: block;
 		}
@@ -171,7 +172,7 @@
 		display: none;
 	}
 
-	@media only screen and (min-width: 576px) {
+	@media only screen and (min-width: 992px) {
 		.custom-class-big {
 			display: block;
 		}

@@ -178,7 +178,7 @@
 		}
 	}
 
-	@media screen and (orientation: landscape) {
+	@media screen and (max-width: 576px) and (orientation: landscape) {
       :global(html) {
         /* Rotate the content container */
         transform: rotate(-90deg);

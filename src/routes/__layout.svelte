@@ -117,7 +117,8 @@
 </div>
 
 <main>
-	<div class="min-vh-100 w-100 p-4">
+	<div class="min-vh-100 min-vw-100 p-4">
+	<!-- <div class="min-vh-100 w-100 p-4"> -->
 		<slot />
 	</div>
 </main>
@@ -161,7 +162,7 @@
 		display: none;
 	}
 
-	@media only screen and (max-width: 576px) and (orientation: landscape) {
+	@media only screen and (max-width: 576px) {
 		.custom-class {
 			display: block;
 		}
@@ -171,7 +172,7 @@
 		display: none;
 	}
 
-	@media only screen and (min-width: 576px) and (orientation: landscape) {
+	@media only screen and (min-width: 576px) {
 		.custom-class-big {
 			display: block;
 		}

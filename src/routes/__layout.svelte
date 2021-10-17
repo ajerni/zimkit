@@ -176,4 +176,18 @@
 			display: block;
 		}
 	}
+
+	@media screen and (max-width: 576px) and (orientation: landscape) {
+	:global(html) {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
+
+
 </style>
